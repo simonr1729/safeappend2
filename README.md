@@ -1,0 +1,5 @@
+The safeappend command allows for datasets to be appended in Stata even variable types to not match-up by either destringing or tostring variables until types are consistent. The code does not allow any data to be deleted (unlike the "append, force" command).
+
+The safeappend command however still runs an error when the tostring or destring command requires the force subcommand, for example when tostring an integer with assigned value label.
+
+The safeappend2 command will, if required, permit the "tosring, force" and "destring, force" command in the cases where it is absolutely necessary, and also stores the old variable type as a new variable with suffix *_SA. This code therefore runs for any data types (so will never hit an error), and does not delete and stored data from the dataset. The downside of the command is that is can leave the appended dataset with extraneous *_SA variables which will require dealing with.
